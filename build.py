@@ -1,46 +1,27 @@
 from pybtex.database.input import bibtex
 
 def get_personal_data():
-    name = ["Michael", "Niemeyer"]
-    email = "micniemeyer1@gmail.com"
-    twitter = "Mi_Niemeyer"
-    github = "m-niemeyer"
-    linkedin = "michael-niemeyer"
+    name = ["Houcine", "AYOUBI"]
+    email = "ayoubimohammedelhoucine@gmail.com"
+    github = "m23ayou2"
+    linkedin = "mohammed-el-houcine-ayoubi"
     bio_text = f"""
                 <p>
-                    I am a senior research scientist at Google working on 3D computer vision and generative modeling.
-                    Prior to joining Google, I was a PhD student at the <a href="https://uni-tuebingen.de/en/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/autonomous-vision/home/" target="_blank">Max Planck Insitute for Intelligent Systems</a> supervised by <a href="https://www.cvlibs.net/" target="_blank">Andreas Geiger</a>.
-                    As an undergraduate student, I studied Mathematics at the <a href="http://www.mi.uni-koeln.de/main/index.en.php" target="_blank">University of Cologne (Germany)</a> and computer science as the Master's at the 
-                    <a href="https://www.st-andrews.ac.uk/computer-science/" target="_blank">University of St Andrews (UK)</a>.
+                    I am Houcine AYOUBI, a Master’s student at <a href="https://www.imt-atlantique.fr/en" target="_blank">IMT Atlantique</a> with a deep interest in applied mathematics and high-performance computing. 
+                    I’m actively seeking R&D engineer opportunities where I can combine rigorous analysis with high-performance implementation to deliver impactful results.
                 </p>
-                <p>For any inquiries, feel free to reach out to me via mail!</p>
+
+                <p>Feel free to view my projects or contact me for collaborations, internships, or full-time roles.</p>
                 <p>
                     <a href="https://m-niemeyer.github.io/assets/other/bio.txt" target="_blank" style="margin-right: 5px"><i class="fa-solid fa-graduation-cap"></i> Bio</a>
                     <a href="https://m-niemeyer.github.io/assets/pdf/CV_Niemeyer_Michael.pdf" target="_blank" style="margin-right: 5px"><i class="fa fa-address-card fa-lg"></i> CV</a>
-                    <a href="mailto:micniemeyer1@gmail.com" style="margin-right: 5px"><i class="far fa-envelope-open fa-lg"></i> Mail</a>
-                    <a href="https://twitter.com/Mi_Niemeyer" target="_blank" style="margin-right: 5px"><i class="fab fa-twitter fa-lg"></i> Twitter</a>
-                    <a href="https://scholar.google.com/citations?user=v1O7i_0AAAAJ&hl=en" target="_blank" style="margin-right: 5px"><i class="fa-solid fa-book"></i> Scholar</a>
-                    <a href="https://github.com/m-niemeyer" target="_blank" style="margin-right: 5px"><i class="fab fa-github fa-lg"></i> Github</a>
-                    <a href="https://www.linkedin.com/in/michael-niemeyer" target="_blank" style="margin-right: 5px"><i class="fab fa-linkedin fa-lg"></i> LinkedIn</a>
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#demo" data-toggle="collapse" style="margin-left: -6px; margin-top: -2px;"><i class="fa-solid fa-trophy"></i>Awards</button>
-                    <div id="demo" class="collapse">
-                    <span style="font-weight: bold;">Awards:</span>
-                    In 2011, I graduated as top of my year from secondary school and received <a href="https://www.e-fellows.net/" target="_blank">the e-fellows scholarship</a> and was admitted to <a href="https://www.mathematik.de/" target="_blank">the Germany Mathematics Society</a> and <a href="https://www.dpg-physik.de/" target="_blank">the German Physics Society</a>. In 2017 I received the Dean's List Award for Academic Excellence for my Master's degree.
-                    During my PhD studies, I was a scholar of <a href="https://imprs.is.mpg.de/" target="_blank">the International Max Planck Research School for Intelligent Systems (IMPRS-IS)</a>.
-                    Our research projects Occupancy Networks, DVR, and ConvOnet were selected to be among the 15 most influencial <a href="https://www.paperdigest.org/2021/03/most-influential-cvpr-papers-2021-03/" target="_blank">CVPR</a> /  <a href="https://www.paperdigest.org/2023/09/most-influential-eccv-papers-2023-09/" target="_blank">ECCV</a> papers of 2019 and 2020.
-                    In 2021, we received the CS teaching award for our <a href="https://uni-tuebingen.de/fakultaeten/mathematisch-naturwissenschaftliche-fakultaet/fachbereiche/informatik/lehrstuehle/autonomous-vision/lectures/computer-vision/" target="_blank">computer vision lecture</a> as well as  <a href="https://cyber-valley.de/en/news/meet-the-ai-gamedev-winners" target="blank">the AIGameDev scientific award</a> for our GRAF project and <a href="https://cvpr2021.thecvf.com/node/329" target="_blank">the CVPR Best Paper Award</a> for GIRAFFE (<a href="https://cyber-valley.de/en/news/best-paper-cvpr-2021" target="_blank">news coverage</a>).
-                </div>
+                    <a href="mailto:ayoubimohammedelhoucine@gmail.com" style="margin-right: 5px"><i class="far fa-envelope-open fa-lg"></i> Mail</a>
+                    <a href="https://scholar.google.com/citations?user=-7CHMbkAAAAJ&hl=fr" target="_blank" style="margin-right: 5px"><i class="fa-solid fa-book"></i> Scholar</a>
+                    <a href="https://github.com/m23ayou2" target="_blank" style="margin-right: 5px"><i class="fab fa-github fa-lg"></i> Github</a>
+                    <a href="https://www.linkedin.com/in/mohammed-el-houcine-ayoubi" target="_blank" style="margin-right: 5px"><i class="fab fa-linkedin fa-lg"></i> LinkedIn</a>
                 </p>
     """
     footer = """
-            <div class="col-sm-12" style="">
-                <h4>Homepage Template</h4>
-                <p>
-                    Feel free to use this website as a template! It is fully responsive and very easy to use and maintain as it uses a python script that crawls your bib files to automatically add the papers and talks. If you find it helpful, please add a link to my website - I will also add a link to yours (if you want). <a href="https://github.com/m-niemeyer/m-niemeyer.github.io" target="_blank">Checkout the github repository for instructions on how to use it</a>. <br>
-                    <a href="https://kashyap7x.github.io/" target="_blank">&#9883;</a>
-                    <a href="https://kait0.github.io/" target="_blank">&#9883;</a>
-                </p>
-            </div>
     """
     return name, bio_text, footer
 
@@ -128,6 +109,10 @@ def get_author_dict():
         'Daniel Watson': 'https://scholar.google.com/citations?user=ve9A9rMAAAAJ&hl=en',
         'Yannick Strümpler': 'https://scholar.google.com/citations?user=6UwR6EUAAAAJ&hl=de',
         'Ahmed Tekalp': 'https://mysite.ku.edu.tr/mtekalp/',
+        'Mathieu Leonardon': 'https://www.mathieuleonardon.com/'   ,
+        'Adrien Cassagne': 'https://largo.lip6.fr/~cassagnea/' ,
+        'Romain Tajan': 'https://rtajan.github.io/teaching/',
+        'Camille Leroux': 'https://scholar.google.com/citations?user=EBYOGZAAAAAJ&hl=en' 
         }
 
 def generate_person_html(persons, connection=", ", make_bold=True, make_bold_name='Michael Niemeyer', add_links=True):
@@ -210,6 +195,16 @@ def get_publications_html():
         s+= get_paper_entry(k, bib_data.entries[k])
     return s
 
+def get_projects_html():
+    parser = bibtex.Parser()
+    bib_data = parser.parse_file('project_list.bib')
+    keys = bib_data.entries.keys()
+    s = ""
+    for k in keys:
+        s+= get_paper_entry(k, bib_data.entries[k])
+    return s
+
+
 def get_talks_html():
     parser = bibtex.Parser()
     bib_data = parser.parse_file('talk_list.bib')
@@ -221,6 +216,8 @@ def get_talks_html():
 
 def get_index_html():
     pub = get_publications_html()
+    prj = get_projects_html()
+
     talks = get_talks_html()
     name, bio_text, footer = get_personal_data()
     s = f"""
@@ -264,10 +261,10 @@ def get_index_html():
                         {pub}
                     </div>
                 </div>
-                <div class="row" style="margin-top: 3em;">
+                <div class="row" style="margin-top: 1em;">
                     <div class="col-sm-12" style="">
-                        <h4>Talks</h4>
-                        {talks}
+                        <h4>Projects</h4>
+                        {prj}
                     </div>
                 </div>
                 <div class="row" style="margin-top: 3em; margin-bottom: 1em;">
