@@ -7,7 +7,7 @@ def get_personal_data():
     linkedin = "mohammed-el-houcine-ayoubi"
     bio_text = f"""
                 <p>
-                    I am Houcine AYOUBI, a Master’s student at <a href="https://www.imt-atlantique.fr/en" target="_blank">IMT Atlantique</a> with a deep interest in applied mathematics and high-performance computing. 
+                    I am Houcine AYOUBI, an engineering student at <a href="https://www.imt-atlantique.fr/en" target="_blank">IMT Atlantique</a> with a deep interest in applied mathematics and high-performance computing. 
                     I’m actively seeking R&D engineer opportunities where I can combine rigorous analysis with high-performance implementation to deliver impactful results.
                 </p>
 
