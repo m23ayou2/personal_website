@@ -1,301 +1,211 @@
+import html
+from datetime import date
+
 from pybtex.database.input import bibtex
 
-def get_personal_data():
-    name = ["Houcine", "AYOUBI"]
-    email = "ayoubimohammedelhoucine@gmail.com"
-    github = "m23ayou2"
-    linkedin = "mohammed-el-houcine-ayoubi"
-    bio_text = f"""
-                <p>
-                    I am Houcine AYOUBI, an engineering student at <a href="https://www.imt-atlantique.fr/en" target="_blank">IMT Atlantique</a> with a deep interest in applied mathematics and high-performance computing. 
-                    I’m actively seeking R&D engineer opportunities where I can combine rigorous analysis with high-performance implementation to deliver impactful results.
-                </p>
+MY_NAME = 'Mohammed-El-Houcine Ayoubi'
 
-                <p>Feel free to view my projects or contact me for collaborations, internships, or full-time roles.</p>
-                <p>
-                    <a href="mailto:ayoubimohammedelhoucine@gmail.com" style="margin-right: 5px"><i class="far fa-envelope-open fa-lg"></i> Mail</a>
-                    <a href="https://scholar.google.com/citations?user=-7CHMbkAAAAJ&hl=fr" target="_blank" style="margin-right: 5px"><i class="fa-solid fa-book"></i> Scholar</a>
-                    <a href="https://github.com/m23ayou2" target="_blank" style="margin-right: 5px"><i class="fab fa-github fa-lg"></i> Github</a>
-                    <a href="https://www.linkedin.com/in/mohammed-el-houcine-ayoubi" target="_blank" style="margin-right: 5px"><i class="fab fa-linkedin fa-lg"></i> LinkedIn</a>
-                </p>
+
+def get_personal_data():
+    name = ['Houcine', 'Ayoubi']
+    description = 'Engineering student at IMT Atlantique, interested in applied mathematics and high-performance computing.'
+    # Small line shown above the intro, with a blinking cursor after it.
+    motto = 'measure twice,<br>vectorize once'
+    # Links with class="cite" show the <span class="note"> as a hover card.
+    bio_text = """
+        <h1>Hi, I’m Houcine.</h1>
+        <p>Engineering student @ <a href="https://www.imt-atlantique.fr/en" target="_blank" rel="noopener noreferrer">IMT Atlantique</a>, with a deep interest in applied mathematics and high-performance computing.</p>
+        <p>Lately: fast software <a class="cite" href="work.html#Leonardon2025Polar">polar codes<span class="note"><b>Low-Latency Software Polar Encoders and Decoders for Short Blocklengths</b>ISTC 2025, with M. Leonardon, A. Cassagne, R. Tajan and C. Leroux</span></a> and <a class="cite" href="work.html#Ayoubi2025Unmixing">hyperspectral unmixing<span class="note"><b>Hyperspectral imaging unmixing</b>Numerical methods project, 2025, with A. Aboulkacem and M. Soussi</span></a>.</p>
+        <p>I’m actively seeking engineering opportunities: internships, full-time roles and collaborations.</p>
+        <p class="links"><a href="mailto:ayoubimohammedelhoucine@gmail.com">mail</a><span class="sep"> / </span><a href="https://scholar.google.com/citations?user=-7CHMbkAAAAJ&amp;hl=fr" target="_blank" rel="noopener noreferrer">scholar</a><span class="sep"> / </span><a href="https://github.com/m23ayou2" target="_blank" rel="noopener noreferrer">github</a><span class="sep"> / </span><a href="https://www.linkedin.com/in/mohammed-el-houcine-ayoubi" target="_blank" rel="noopener noreferrer">linkedin</a></p>
     """
-    footer = """
-    """
-    return name, bio_text, footer
+    return name, description, motto, bio_text
+
 
 def get_author_dict():
     return {
-        'Andreas Geiger': 'https://www.cvlibs.net/',
-        'Songyou Peng': 'https://pengsongyou.github.io/',
-        'Zehao Yu': 'https://niujinshuchong.github.io/',
-        'Torsten Sattler': 'https://tsattler.github.io/',
-        'Katja Schwarz': 'https://katjaschwarz.github.io/',
-        'Axel Sauer': 'https://axelsauer.com/',
-        'Jonathan Barron': 'https://jonbarron.info/',
-        'Ben Mildenhall': 'https://bmild.github.io/',
-        'Mehdi Sajjadi': 'https://msajjadi.com/',
-        'Noha Radwan': 'http://www2.informatik.uni-freiburg.de/~radwann/',
-        'Chiyu Jiang': 'https://www.maxjiang.ml/',
-        'Yiyi Liao': 'https://yiyiliao.github.io/',
-        'Marc Pollefeys': 'https://people.inf.ethz.ch/pomarc/',
-        'Michael Oechsle': 'https://moechsle.github.io/',
-        'Christian Reiser': 'https://creiser.github.io/',
-        'Lars Mescheder': 'https://scholar.google.de/citations?user=h2k1gL4AAAAJ&hl=de',
-        'Thilo Strauss': 'https://scholar.google.com/citations?user=VlymtLQAAAAJ&hl=en',
-        'Sebastian Nowozin': 'http://www.nowozin.net/sebastian/',
-        'Marie-Julie Rakotosaona': 'http://www.lix.polytechnique.fr/Labo/Marie-Julie.RAKOTOSAONA/',
-        'Fabian Manhardt': 'https://campar.in.tum.de/Main/FabianManhardt',
-        'Diego Martin Arroyo': 'https://martinarroyo.net/',
-        'Abhijit Kundu': 'https://abhijitkundu.info/',
-        'Federico Tombari': 'https://www.cs.cit.tum.de/camp/members/senior-research-scientists/federico-tombari/',
-        'Anpei Chen': 'https://apchenstu.github.io/',
-        'Bozidar Antic': 'https://bozidarantic.com/',
-        'Apratim Bhattacharyya': 'https://apratimbhattacharyya18.github.io/',
-        'Siyu Tang': 'https://inf.ethz.ch/people/person-detail.MjYyNzgw.TGlzdC8zMDQsLTg3NDc3NjI0MQ==.html',
-        'Hidenobu Matsuki': 'https://dblp.org/pid/225/4487.html',
-        'Keisuke Tateno': 'https://campar.in.tum.de/Main/KeisukeTateno',
-        'Alessio Tonioni': 'https://alessiotonioni.github.io/',
-        'Christina Tsalicoglou': 'https://scholar.google.ch/citations?user=7D10QQkAAAAJ&hl=en', 
-        'Amit Raj': 'https://amitraj93.github.io/',
-        'Srinivas Kaza': 'https://www.linkedin.com/in/srinivas-kaza-64223b74',
-        'Ben Poole': 'https://poolio.github.io/',
-        'Nataniel Ruiz': 'https://natanielruiz.github.io/',
-        'Shiran Zada': 'https://scholar.google.com/citations?user=I2qheksAAAAJ',
-        'Kfir Aberman': 'https://kfiraberman.github.io/',
-        'Michael Rubinstein': 'http://people.csail.mit.edu/mrub/',
-        'Yuanzhen Li': 'http://people.csail.mit.edu/yzli/',
-        'Varun Jampani': 'https://varunjampani.github.io/',
-        'Francis Engelmann': 'https://francisengelmann.github.io/',
-        'Mohamad Shahbazi': 'https://mohamad-shahbazi.github.io/',
-        'Liesbeth Claessens': 'https://asl.ethz.ch/the-lab/people/person-detail.MjY5NDUz.TGlzdC8xNTg0LDEyMDExMzk5Mjg=.html',
-        'Edo Collins': 'https://www.linkedin.com/in/edo-collins/?originalSubdomain=ch',
-        'Luc Van Gool': 'https://ee.ethz.ch/the-department/faculty/professors/person-detail.OTAyMzM=.TGlzdC80MTEsMTA1ODA0MjU5.html',
-        'Fangjinhua Wang': 'https://fangjinhuawang.github.io/',
-        'Richard Szeliski': 'https://szeliski.org/',
-        'Kunyi Li': 'https://campus.tum.de/tumonline/ee/ui/ca2/app/desktop/#/pl/ui/$ctx/visitenkarte.show_vcard?$ctx=design=ca2;header=max;lang=de&pPersonenGruppe=3&pPersonenId=6EC78DAA25310FF2',
-        'Nassir Navab': 'https://www.professoren.tum.de/en/navab-nassir',
-        'Rama Gosula': 'https://arvr.google.com/',
-        'John Bates': 'https://arvr.google.com/',
-        'Dominik Kaeser': 'https://scholar.google.com/citations?user=DQ4838YAAAAJ&hl=en',
-        'Erik Sandström': 'https://scholar.google.com/citations?user=phiETm4AAAAJ&hl=en',
-        'Luc Van-Gool': 'https://insait.ai/prof-luc-van-gool/',
-        'Martin Oswald': 'https://oswaldm.github.io/',
-        'Fangneng Zhan': 'https://fnzhan.com/',
-        'Hanxue Liang': 'https://scholar.google.com/citations?user=XcxDA14AAAAJ&hl=en',
-        'Yifan Wang': 'https://yifita.netlify.app/',
-        'Adam Kortylewski': 'https://genintel.mpi-inf.mpg.de/',
-        'Cengiz Oztireli': 'https://www.cl.cam.ac.uk/~aco41/',
-        'Gordon Wetzstein': 'https://stanford.edu/~gordonwz/', 
-        'Christian Theobalt': 'https://people.mpi-inf.mpg.de/~theobalt/',
-        'Siyun Liang': 'https://siyun-liang.github.io/',
-        'Thomas Wimmer': 'https://wimmerth.github.io/',
-        'Sen Wang': 'https://scholar.google.com/citations?user=OxZ9S6oAAAAJ&hl=en',
-        'Stefano Gasperini': 'https://www.cs.cit.tum.de/camp/members/stefano-gasperini/',
-        'Zeyu Chen': 'https://zeyuuuchen.github.io/',
-        'Jonas Kulhanek': 'https://jkulhanek.com/',
-        'Yiming Wang': 'https://scholar.google.com/citations?user=AVOZmU8AAAAJ&hl=en',
-        'Lucy Chai': 'https://scholar.google.com/citations?user=bunnQWQAAAAJ&hl=en',
-        'Xuan Luo': 'https://roxanneluo.github.io/',
-        'Manuel Lagunas': 'https://mlagunas.me/',
-        'Stephen Lombardi': 'https://stephenlombardi.github.io/',
-        'Tiancheng Sun': 'https://www.kevinkingo.com/',
-        'Tianshi Cao': 'https://scholar.google.com/citations?user=CZ9wBBoAAAAJ&hl=en',
-        'Elena Alegret': 'https://es.linkedin.com/in/elena-alegret',
-        'Maria Parelli': 'https://mparelli.github.io/',
-        'Atakan Topaloglu': 'https://scholar.google.com/citations?user=l9mFndIAAAAJ&hl=en',
-        'Xin Kong': 'https://kxhit.github.io/',
-        'Daniel Watson': 'https://scholar.google.com/citations?user=ve9A9rMAAAAJ&hl=en',
-        'Yannick Strümpler': 'https://scholar.google.com/citations?user=6UwR6EUAAAAJ&hl=de',
-        'Ahmed Tekalp': 'https://mysite.ku.edu.tr/mtekalp/',
-        'Mathieu Leonardon': 'https://www.mathieuleonardon.com/'   ,
-        'Adrien Cassagne': 'https://largo.lip6.fr/~cassagnea/' ,
+        'Mathieu Leonardon': 'https://www.mathieuleonardon.com/',
+        'Adrien Cassagne': 'https://largo.lip6.fr/~cassagnea/',
         'Romain Tajan': 'https://rtajan.github.io/teaching/',
-        'Camille Leroux': 'https://scholar.google.com/citations?user=EBYOGZAAAAAJ&hl=en' 
-        }
+        'Camille Leroux': 'https://scholar.google.com/citations?user=EBYOGZAAAAAJ&hl=en',
+    }
 
-def generate_person_html(persons, connection=", ", make_bold=True, make_bold_name='Michael Niemeyer', add_links=True):
+
+def person_name(p):
+    return ' '.join(p.get_part('first') + p.get_part('last'))
+
+
+def generate_person_html(persons, connection=', ', make_bold_name=MY_NAME, add_links=True):
     links = get_author_dict() if add_links else {}
-    s = ""
+    parts = []
     for p in persons:
-        string_part_i = ""
-        for name_part_i in p.get_part('first') + p.get_part('last'): 
-            if string_part_i != "":
-                string_part_i += " "
-            string_part_i += name_part_i
-        if string_part_i in links.keys():
-            string_part_i = f'<a href="{links[string_part_i]}" target="_blank">{string_part_i}</a>'
-        if make_bold and string_part_i == make_bold_name:
-            string_part_i = f'<span style="font-weight: bold";>{make_bold_name}</span>'
-        if p != persons[-1]:
-            string_part_i += connection
-        s += string_part_i
-    return s
-
-def get_paper_entry(entry_key, entry):
-    s = """<div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3">"""
-    s += f"""<img src="{entry.fields['img']}" class="img-fluid img-thumbnail" alt="Project image">"""
-    s += """</div><div class="col-sm-9">"""
-
-    if 'award' in entry.fields.keys():
-        s += f"""<a href="{entry.fields['html']}" target="_blank">{entry.fields['title']}</a> <span style="color: red;">({entry.fields['award']})</span><br>"""
-    else:
-        s += f"""<a href="{entry.fields['html']}" target="_blank">{entry.fields['title']}</a> <br>"""
-
-    s += f"""{generate_person_html(entry.persons['author'])} <br>"""
-    s += f"""<span style="font-style: italic;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
-
-    artefacts = {'html': 'Project Page', 'pdf': 'Paper', 'supp': 'Supplemental', 'video': 'Video', 'poster': 'Poster', 'code': 'Code'}
-    i = 0
-    for (k, v) in artefacts.items():
-        if k in entry.fields.keys():
-            if i > 0:
-                s += ' / '
-            s += f"""<a href="{entry.fields[k]}" target="_blank">{v}</a>"""
-            i += 1
+        name = person_name(p)
+        if name == make_bold_name:
+            parts.append(f'<span class="me">{html.escape(name)}</span>')
+        elif name in links:
+            parts.append(f'<a href="{html.escape(links[name])}" target="_blank" rel="noopener noreferrer">{html.escape(name)}</a>')
         else:
-            print(f'[{entry_key}] Warning: Field {k} missing!')
+            parts.append(html.escape(name))
+    return connection.join(parts)
 
-    cite = "<pre><code>@InProceedings{" + f"{entry_key}, \n"
-    cite += "\tauthor = {" + f"{generate_person_html(entry.persons['author'], make_bold=False, add_links=False, connection=' and ')}" + "}, \n"
-    for entr in ['title', 'booktitle', 'year']:
-        cite += f"\t{entr} = " + "{" + f"{entry.fields[entr]}" + "}, \n"
-    cite += """}</pre></code>"""
-    s += " /" + f"""<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{entry_key}" aria-expanded="false" aria-controls="collapseExample" style="margin-left: -6px; margin-top: -2px;">Expand bibtex</button><div class="collapse" id="collapse{entry_key}"><div class="card card-body">{cite}</div></div>"""
-    s += """ </div> </div> </div>"""
+
+def get_artefact_links(fields, artefacts):
+    links, seen = [], set()
+    for (k, v) in artefacts.items():
+        if k in fields and fields[k] not in seen:
+            seen.add(fields[k])
+            links.append(f'<a href="{html.escape(fields[k])}" target="_blank" rel="noopener noreferrer">{v}</a>')
+    return links
+
+
+def get_bibtex(entry_key, entry):
+    authors = ' and '.join(person_name(p) for p in entry.persons['author'])
+    cite = '@InProceedings{' + f'{entry_key},\n'
+    cite += '  author = {' + authors + '},\n'
+    for field in ['title', 'booktitle', 'year']:
+        cite += f'  {field} = ' + '{' + entry.fields[field] + '},\n'
+    cite += '}'
+    return html.escape(cite)
+
+
+def get_paper_entry(entry_key, entry, with_bibtex=True):
+    fields = entry.fields
+    main_link = fields.get('html') or fields.get('pdf')
+
+    s = f'<li class="entry" id="{entry_key}">'
+    if 'img' in fields:
+        s += f'<a class="thumb" href="{html.escape(main_link)}" target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">'
+        s += f'<img src="{fields["img"]}" alt="" loading="lazy"></a>'
+    s += '<div>'
+
+    title = html.escape(fields['title'])
+    if main_link:
+        title = f'<a href="{html.escape(main_link)}" target="_blank" rel="noopener noreferrer">{title}</a>'
+    if 'award' in fields:
+        title += f' <span class="award">({html.escape(fields["award"])})</span>'
+    s += f'<h3>{title}</h3>'
+    s += f'<p class="authors">{generate_person_html(entry.persons["author"])}</p>'
+    s += f'<p class="venue"><em>{html.escape(fields["booktitle"])}</em>, {fields["year"]}</p>'
+
+    artefacts = {'html': 'project page', 'pdf': 'paper', 'supp': 'supplemental', 'video': 'video', 'poster': 'poster', 'code': 'code'}
+    links = get_artefact_links(fields, artefacts)
+    if with_bibtex:
+        links.append(f'<button class="link-button" type="button" data-bib aria-expanded="false" aria-controls="bib-{entry_key}">bibtex</button>')
+    s += '<p class="artefacts">' + '<span class="sep"> / </span>'.join(links) + '</p>'
+    if with_bibtex:
+        s += f'<div class="bib" id="bib-{entry_key}" hidden><button class="copy" type="button">copy</button><pre>{get_bibtex(entry_key, entry)}</pre></div>'
+    s += '</div></li>'
     return s
+
 
 def get_talk_entry(entry_key, entry):
-    s = """<div style="margin-bottom: 3em;"> <div class="row"><div class="col-sm-3">"""
-    s += f"""<img src="{entry.fields['img']}" class="img-fluid img-thumbnail" alt="Project image">"""
-    s += """</div><div class="col-sm-9">"""
-    s += f"""{entry.fields['title']}<br>"""
-    s += f"""<span style="font-style: italic;">{entry.fields['booktitle']}</span>, {entry.fields['year']} <br>"""
-
-    artefacts = {'slides': 'Slides', 'video': 'Recording'}
-    i = 0
-    for (k, v) in artefacts.items():
-        if k in entry.fields.keys():
-            if i > 0:
-                s += ' / '
-            s += f"""<a href="{entry.fields[k]}" target="_blank">{v}</a>"""
-            i += 1
-        else:
-            print(f'[{entry_key}] Warning: Field {k} missing!')
-    s += """ </div> </div> </div>"""
-    return s
-
-def get_publications_html():
-    parser = bibtex.Parser()
-    bib_data = parser.parse_file('publication_list.bib')
-    keys = bib_data.entries.keys()
-    s = ""
-    for k in keys:
-        s+= get_paper_entry(k, bib_data.entries[k])
-    return s
-
-def get_projects_html():
-    parser = bibtex.Parser()
-    bib_data = parser.parse_file('project_list.bib')
-    keys = bib_data.entries.keys()
-    s = ""
-    for k in keys:
-        s+= get_paper_entry(k, bib_data.entries[k])
+    fields = entry.fields
+    s = f'<li class="entry" id="{entry_key}">'
+    if 'img' in fields:
+        s += f'<span class="thumb"><img src="{fields["img"]}" alt="" loading="lazy"></span>'
+    s += '<div>'
+    s += f'<h3>{html.escape(fields["title"])}</h3>'
+    s += f'<p class="venue"><em>{html.escape(fields["booktitle"])}</em>, {fields["year"]}</p>'
+    links = get_artefact_links(fields, {'slides': 'slides', 'video': 'recording'})
+    if links:
+        s += '<p class="artefacts">' + '<span class="sep"> / </span>'.join(links) + '</p>'
+    s += '</div></li>'
     return s
 
 
-def get_talks_html():
-    parser = bibtex.Parser()
-    bib_data = parser.parse_file('talk_list.bib')
-    keys = bib_data.entries.keys()
-    s = ""
-    for k in keys:
-        s+= get_talk_entry(k, bib_data.entries[k])
-    return s
+def parse_bib(filename):
+    return bibtex.Parser().parse_file(filename).entries
+
+
+def get_section_html(title, entries):
+    if not entries:
+        return ''
+    return f"""
+      <section class="section">
+        <h2><span>{title}</span><span>{len(entries):02d}</span></h2>
+        <ol class="entries">{''.join(entries)}</ol>
+      </section>"""
+
+
+NAV_ITEMS = [('home', './'), ('work', 'work.html')]
+
+THEME_ICONS = """<svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z"/></svg><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="2.8"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg>"""
+
+# Runs before first paint so a saved theme never flashes the wrong colours.
+THEME_INIT = """<script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>"""
+
+
+def get_page_html(title, description, active, body, scripts=()):
+    nav = ''
+    for (label, href) in NAV_ITEMS:
+        current = ' aria-current="page"' if label == active else ''
+        nav += f'<a href="{href}"{current}>{label}</a>'
+    script_tags = ''.join(f'<script src="assets/js/{s}" defer></script>' for s in scripts)
+    return f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{title}</title>
+  <meta name="description" content="{description}">
+  <meta property="og:title" content="{title}">
+  <meta property="og:description" content="{description}">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+  {THEME_INIT}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+  {script_tags}
+</head>
+<body>
+  <nav class="nav" aria-label="Main">
+    {nav}
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">{THEME_ICONS}</button>
+  </nav>
+{body}
+</body>
+</html>
+"""
+
 
 def get_index_html():
-    pub = get_publications_html()
-    prj = get_projects_html()
+    name, description, motto, bio_text = get_personal_data()
+    body = f"""  <canvas id="flow" aria-hidden="true"></canvas>
+  <main class="hero">
+    <blockquote class="motto reveal" data-avoid>{motto}<span class="cursor" aria-hidden="true"></span></blockquote>
+    <div class="intro reveal" style="--i: 1" data-avoid>{bio_text}</div>
+  </main>"""
+    return get_page_html(f'{name[0]} {name[1]}', description, 'home', body, scripts=['site.js', 'flow.js'])
 
-    talks = get_talks_html()
-    name, bio_text, footer = get_personal_data()
-    s = f"""
-    <!doctype html>
-<html lang="en">
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-  <title>{name[0] + ' ' + name[1]}</title>
-  <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-</head>
-
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-1"></div>
-            <div class="col-md-10">
-                <div class="row" style="margin-top: 3em;">
-                    <div class="col-sm-12" style="margin-bottom: 1em;">
-                    <h3 class="display-4" style="text-align: center;"><span style="font-weight: bold;">{name[0]}</span> {name[1]}</h3>
-                    </div>
-                    <br>
-                    <div class="col-md-10" style="">
-                        {bio_text}
-                    </div>
-                    <div class="col-md-2" style="">
-                        <img src="assets/img/profile.jpg" class="img-thumbnail" width="280px" alt="Profile picture">
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 1em;">
-                    <div class="col-sm-12" style="">
-                        <h4>Publications</h4>
-                        {pub}
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 1em;">
-                    <div class="col-sm-12" style="">
-                        <h4>Projects</h4>
-                        {prj}
-                    </div>
-                </div>
-                <div class="row" style="margin-top: 3em; margin-bottom: 1em;">
-                    {footer}
-                </div>
-            </div>
-            <div class="col-md-1"></div>
-        </div?
+def get_work_html():
+    name, description, _, _ = get_personal_data()
+    pubs = [get_paper_entry(k, e) for (k, e) in parse_bib('publication_list.bib').items()]
+    projects = [get_paper_entry(k, e, with_bibtex=False) for (k, e) in parse_bib('project_list.bib').items()]
+    talks = [get_talk_entry(k, e) for (k, e) in parse_bib('talk_list.bib').items()]
+    body = f"""  <main class="page">
+    <header class="page-head reveal">
+      <h1>work</h1>
+      <p>Publications and projects, newest first.</p>
+    </header>
+    <div class="reveal" style="--i: 1">
+      {get_section_html('publications', pubs)}
+      {get_section_html('projects', projects)}
+      {get_section_html('talks', talks)}
     </div>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
-</body>
-
-</html>
-    """
-    return s
+  </main>
+  <footer class="site-footer">© {date.today().year} {name[0]} {name[1]}</footer>"""
+    return get_page_html(f'Work · {name[0]} {name[1]}', description, 'work', body, scripts=['site.js'])
 
 
-def write_index_html(filename='index.html'):
-    s = get_index_html()
+def write_file(filename, s):
     with open(filename, 'w') as f:
         f.write(s)
-    print(f'Written index content to {filename}.')
+    print(f'Written content to {filename}.')
+
 
 if __name__ == '__main__':
-    write_index_html('index.html')
+    write_file('index.html', get_index_html())
+    write_file('work.html', get_work_html())
