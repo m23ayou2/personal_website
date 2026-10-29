@@ -1,4 +1,4 @@
-/* Cross-page fade between home and work (progressive enhancement). */
+/* Cross-page fade between home and blog (progressive enhancement). */
 @view-transition { navigation: auto; }
 
 :root {
@@ -171,43 +171,6 @@ a:hover, a:focus-visible { text-decoration-color: currentColor; }
   font-size: 12px;
 }
 
-/* Hover card on inline links, e.g. the paper behind "polar codes". */
-.cite { position: relative; }
-
-.note {
-  position: absolute;
-  left: 0;
-  bottom: calc(100% + .6rem);
-  z-index: 5;
-  width: max-content;
-  max-width: min(24rem, 80vw);
-  padding: .65rem .85rem;
-  border: 1px solid var(--faint);
-  border-radius: 8px;
-  background: var(--bg);
-  box-shadow: 0 10px 30px -14px rgb(0 0 0 / .3);
-  color: var(--muted);
-  font-size: 12px;
-  line-height: 1.55;
-  white-space: normal;
-  opacity: 0;
-  transform: translateY(4px);
-  pointer-events: none;
-  transition: opacity .15s, transform .15s;
-}
-
-.note b { display: block; margin-bottom: .25rem; color: var(--fg); font-weight: 500; }
-
-.cite:hover .note, .cite:focus-visible .note { opacity: 1; transform: none; }
-
-@media (hover: hover) {
-  .cite { white-space: nowrap; }
-}
-
-@media (hover: none), (max-width: 640px) {
-  .note { display: none; }
-}
-
 .reveal {
   animation: rise .9s cubic-bezier(.2, .7, .2, 1) both;
   animation-delay: calc(var(--i, 0) * 140ms + 80ms);
@@ -215,7 +178,7 @@ a:hover, a:focus-visible { text-decoration-color: currentColor; }
 
 @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
 
-/* ---------- work ---------- */
+/* ---------- blog ---------- */
 
 .page { padding: 8.5rem var(--gutter) 2rem; }
 

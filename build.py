@@ -11,11 +11,9 @@ def get_personal_data():
     description = 'Engineering student at IMT Atlantique, interested in applied mathematics and high-performance computing.'
     # Small line shown above the intro, with a blinking cursor after it.
     motto = 'measure twice,<br>vectorize once'
-    # Links with class="cite" show the <span class="note"> as a hover card.
     bio_text = """
         <h1>Hi, I’m Houcine.</h1>
         <p>Engineering student @ <a href="https://www.imt-atlantique.fr/en" target="_blank" rel="noopener noreferrer">IMT Atlantique</a>, with a deep interest in applied mathematics and high-performance computing.</p>
-        <p>Lately: fast software <a class="cite" href="work.html#Leonardon2025Polar">polar codes<span class="note"><b>Low-Latency Software Polar Encoders and Decoders for Short Blocklengths</b>ISTC 2025, with M. Leonardon, A. Cassagne, R. Tajan and C. Leroux</span></a> and <a class="cite" href="work.html#Ayoubi2025Unmixing">hyperspectral unmixing<span class="note"><b>Hyperspectral imaging unmixing</b>Numerical methods project, 2025, with A. Aboulkacem and M. Soussi</span></a>.</p>
         <p>I’m actively seeking engineering opportunities: internships, full-time roles and collaborations.</p>
         <p class="links"><a href="mailto:ayoubimohammedelhoucine@gmail.com">mail</a><span class="sep"> / </span><a href="https://scholar.google.com/citations?user=-7CHMbkAAAAJ&amp;hl=fr" target="_blank" rel="noopener noreferrer">scholar</a><span class="sep"> / </span><a href="https://github.com/m23ayou2" target="_blank" rel="noopener noreferrer">github</a><span class="sep"> / </span><a href="https://www.linkedin.com/in/mohammed-el-houcine-ayoubi" target="_blank" rel="noopener noreferrer">linkedin</a></p>
     """
@@ -127,7 +125,7 @@ def get_section_html(title, entries):
       </section>"""
 
 
-NAV_ITEMS = [('home', './'), ('work', 'work.html')]
+NAV_ITEMS = [('home', './'), ('blog', 'blog.html')]
 
 THEME_ICONS = """<svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z"/></svg><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="2.8"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg>"""
 
@@ -184,14 +182,14 @@ def get_index_html():
     return get_page_html(f'{name[0]} {name[1]}', description, 'home', body, scripts=['site.js', 'pond.js'])
 
 
-def get_work_html():
+def get_blog_html():
     name, description, _, _ = get_personal_data()
     pubs = [get_paper_entry(k, e) for (k, e) in parse_bib('publication_list.bib').items()]
     projects = [get_paper_entry(k, e, with_bibtex=False) for (k, e) in parse_bib('project_list.bib').items()]
     talks = [get_talk_entry(k, e) for (k, e) in parse_bib('talk_list.bib').items()]
     body = f"""  <main class="page">
     <header class="page-head reveal">
-      <h1>work</h1>
+      <h1>blog</h1>
       <p>Publications and projects, newest first.</p>
     </header>
     <div class="reveal" style="--i: 1">
@@ -201,7 +199,7 @@ def get_work_html():
     </div>
   </main>
   <footer class="site-footer">© {date.today().year} {name[0]} {name[1]}<span class="sep"> · </span>{CREDIT}</footer>"""
-    return get_page_html(f'Work · {name[0]} {name[1]}', description, 'work', body, scripts=['site.js'])
+    return get_page_html(f'Blog · {name[0]} {name[1]}', description, 'blog', body, scripts=['site.js'])
 
 
 def write_file(filename, s):
@@ -212,4 +210,4 @@ def write_file(filename, s):
 
 if __name__ == '__main__':
     write_file('index.html', get_index_html())
-    write_file('work.html', get_work_html())
+    write_file('blog.html', get_blog_html())
