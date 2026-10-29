@@ -155,12 +155,12 @@ def get_page_html(title, description, active, body, scripts=()):
   {THEME_INIT}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
   {script_tags}
 </head>
 <body>
-  <nav class="nav" aria-label="Main">
+  <nav class="nav" aria-label="Main" data-dim>
     {nav}
     <button class="theme-toggle" type="button" aria-label="Toggle dark mode">{THEME_ICONS}</button>
   </nav>
@@ -170,14 +170,18 @@ def get_page_html(title, description, active, body, scripts=()):
 """
 
 
+CREDIT = 'design inspired by <a href="https://www.daoho.dev/" target="_blank" rel="noopener noreferrer">Dao Ho</a>'
+
+
 def get_index_html():
     name, description, motto, bio_text = get_personal_data()
-    body = f"""  <canvas id="flow" aria-hidden="true"></canvas>
+    body = f"""  <canvas id="pond" aria-hidden="true"></canvas>
   <main class="hero">
     <blockquote class="motto reveal" data-avoid>{motto}<span class="cursor" aria-hidden="true"></span></blockquote>
     <div class="intro reveal" style="--i: 1" data-avoid>{bio_text}</div>
+    <p class="credit reveal" style="--i: 2" data-avoid>{CREDIT}</p>
   </main>"""
-    return get_page_html(f'{name[0]} {name[1]}', description, 'home', body, scripts=['site.js', 'flow.js'])
+    return get_page_html(f'{name[0]} {name[1]}', description, 'home', body, scripts=['site.js', 'pond.js'])
 
 
 def get_work_html():
@@ -196,7 +200,7 @@ def get_work_html():
       {get_section_html('talks', talks)}
     </div>
   </main>
-  <footer class="site-footer">© {date.today().year} {name[0]} {name[1]}</footer>"""
+  <footer class="site-footer">© {date.today().year} {name[0]} {name[1]}<span class="sep"> · </span>{CREDIT}</footer>"""
     return get_page_html(f'Work · {name[0]} {name[1]}', description, 'work', body, scripts=['site.js'])
 
 

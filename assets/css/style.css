@@ -8,7 +8,6 @@
   --line: color-mix(in srgb, var(--fg) 35%, transparent);
   --faint: color-mix(in srgb, var(--fg) 12%, transparent);
   --wash: color-mix(in srgb, var(--fg) 5%, transparent);
-  --flow-alpha: 0.32;
   --gutter: clamp(1.25rem, 14vw, 18rem);
   color-scheme: light;
 }
@@ -18,7 +17,6 @@
     --bg: #181715;
     --fg: #f3eee6;
     --muted: color-mix(in srgb, var(--fg) 55%, transparent);
-    --flow-alpha: 0.26;
     color-scheme: dark;
   }
 }
@@ -27,7 +25,6 @@
   --bg: #181715;
   --fg: #f3eee6;
   --muted: color-mix(in srgb, var(--fg) 55%, transparent);
-  --flow-alpha: 0.26;
   color-scheme: dark;
 }
 
@@ -111,7 +108,7 @@ a:hover, a:focus-visible { text-decoration-color: currentColor; }
 
 /* ---------- home ---------- */
 
-#flow {
+#pond {
   position: fixed;
   inset: 0;
   width: 100%;
@@ -164,6 +161,15 @@ a:hover, a:focus-visible { text-decoration-color: currentColor; }
 .links a:hover, .links a:focus-visible { opacity: 1; }
 
 .sep { opacity: .4; }
+
+.credit {
+  position: absolute;
+  left: var(--gutter);
+  bottom: 1.5rem;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
 
 /* Hover card on inline links, e.g. the paper behind "polar codes". */
 .cite { position: relative; }

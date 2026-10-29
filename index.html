@@ -12,16 +12,16 @@
   <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="assets/css/style.css">
-  <script src="assets/js/site.js" defer></script><script src="assets/js/flow.js" defer></script>
+  <script src="assets/js/site.js" defer></script><script src="assets/js/pond.js" defer></script>
 </head>
 <body>
-  <nav class="nav" aria-label="Main">
+  <nav class="nav" aria-label="Main" data-dim>
     <a href="./" aria-current="page">home</a><a href="work.html">work</a>
     <button class="theme-toggle" type="button" aria-label="Toggle dark mode"><svg class="icon-moon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 9.6A5.6 5.6 0 0 1 6.4 2.5a5.6 5.6 0 1 0 7.1 7.1z"/></svg><svg class="icon-sun" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" aria-hidden="true"><circle cx="8" cy="8" r="2.8"/><path d="M8 1.2v1.6M8 13.2v1.6M1.2 8h1.6M13.2 8h1.6M3.2 3.2l1.1 1.1M11.7 11.7l1.1 1.1M3.2 12.8l1.1-1.1M11.7 4.3l1.1-1.1"/></svg></button>
   </nav>
-  <canvas id="flow" aria-hidden="true"></canvas>
+  <canvas id="pond" aria-hidden="true"></canvas>
   <main class="hero">
     <blockquote class="motto reveal" data-avoid>measure twice,<br>vectorize once<span class="cursor" aria-hidden="true"></span></blockquote>
     <div class="intro reveal" style="--i: 1" data-avoid>
@@ -31,6 +31,7 @@
         <p>I’m actively seeking engineering opportunities: internships, full-time roles and collaborations.</p>
         <p class="links"><a href="mailto:ayoubimohammedelhoucine@gmail.com">mail</a><span class="sep"> / </span><a href="https://scholar.google.com/citations?user=-7CHMbkAAAAJ&amp;hl=fr" target="_blank" rel="noopener noreferrer">scholar</a><span class="sep"> / </span><a href="https://github.com/m23ayou2" target="_blank" rel="noopener noreferrer">github</a><span class="sep"> / </span><a href="https://www.linkedin.com/in/mohammed-el-houcine-ayoubi" target="_blank" rel="noopener noreferrer">linkedin</a></p>
     </div>
+    <p class="credit reveal" style="--i: 2" data-avoid>design inspired by <a href="https://www.daoho.dev/" target="_blank" rel="noopener noreferrer">Dao Ho</a></p>
   </main>
 </body>
 </html>

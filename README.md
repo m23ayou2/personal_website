@@ -2,7 +2,7 @@
 
 Source of my homepage. It is plain HTML, CSS and JavaScript (no framework, no build step on the server), so GitHub Pages serves it straight from this repository.
 
-- `index.html`: home page, with an animated flow-field background (`assets/js/flow.js`)
+- `index.html`: home page, with an ASCII koi pond in the background (`assets/js/pond.js`); click the water to feed the koi
 - `work.html`: publications, projects and talks, generated from the `.bib` files
 - `assets/css/style.css`: all styling, including the light and dark themes
 - `assets/js/site.js`: theme toggle and BibTeX show/copy buttons
@@ -16,4 +16,4 @@ Source of my homepage. It is plain HTML, CSS and JavaScript (no framework, no bu
 
 ## Credits
 
-The `build.py` + BibTeX approach comes from [Michael Niemeyer's website template](https://m-niemeyer.github.io/), itself inspired by [Jon Barron's](https://jonbarron.info/). The visual style is inspired by [daoho.dev](https://www.daoho.dev/).
+The `build.py` + BibTeX approach comes from [Michael Niemeyer's website template](https://m-niemeyer.github.io/), itself inspired by [Jon Barron's](https://jonbarron.info/). The design and the ASCII koi pond are inspired by [Dao Ho's website](https://www.daoho.dev/), credited at the bottom of each page.
