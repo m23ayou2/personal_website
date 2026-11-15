@@ -9,15 +9,12 @@ MY_NAME = 'Mohammed-El-Houcine Ayoubi'
 def get_personal_data():
     name = ['Houcine', 'Ayoubi']
     description = 'Engineering student at IMT Atlantique, interested in applied mathematics and high-performance computing.'
-    # Small line shown above the intro, with a blinking cursor after it.
-    motto = 'measure twice,<br>vectorize once'
     bio_text = """
         <h1>Hi, I’m Houcine.</h1>
         <p>Engineering student @ <a href="https://www.imt-atlantique.fr/en" target="_blank" rel="noopener noreferrer">IMT Atlantique</a>, with a deep interest in applied mathematics and high-performance computing.</p>
-        <p>I’m actively seeking engineering opportunities: internships, full-time roles and collaborations.</p>
         <p class="links"><a href="mailto:ayoubimohammedelhoucine@gmail.com">mail</a><span class="sep"> / </span><a href="https://scholar.google.com/citations?user=-7CHMbkAAAAJ&amp;hl=fr" target="_blank" rel="noopener noreferrer">scholar</a><span class="sep"> / </span><a href="https://github.com/m23ayou2" target="_blank" rel="noopener noreferrer">github</a><span class="sep"> / </span><a href="https://www.linkedin.com/in/mohammed-el-houcine-ayoubi" target="_blank" rel="noopener noreferrer">linkedin</a></p>
     """
-    return name, description, motto, bio_text
+    return name, description, bio_text
 
 
 def get_author_dict():
@@ -168,22 +165,21 @@ def get_page_html(title, description, active, body, scripts=()):
 """
 
 
-CREDIT = 'design inspired by <a href="https://www.daoho.dev/" target="_blank" rel="noopener noreferrer">Dao Ho</a>'
+CREDIT = 'design inspired by <a href="https://www.daoho.dev/" target="_blank" rel="noopener noreferrer">Dao Ho</a> and <a href="https://www.generalintuition.com/" target="_blank" rel="noopener noreferrer">General Intuition</a>'
 
 
 def get_index_html():
-    name, description, motto, bio_text = get_personal_data()
-    body = f"""  <canvas id="pond" aria-hidden="true"></canvas>
+    name, description, bio_text = get_personal_data()
+    body = f"""  <canvas id="race" data-src="assets/video/race.mp4" aria-hidden="true"></canvas>
   <main class="hero">
-    <blockquote class="motto reveal" data-avoid>{motto}<span class="cursor" aria-hidden="true"></span></blockquote>
-    <div class="intro reveal" style="--i: 1" data-avoid>{bio_text}</div>
-    <p class="credit reveal" style="--i: 2" data-avoid>{CREDIT}</p>
+    <div class="intro reveal" data-avoid>{bio_text}</div>
+    <p class="credit reveal" style="--i: 1" data-avoid>{CREDIT}</p>
   </main>"""
-    return get_page_html(f'{name[0]} {name[1]}', description, 'home', body, scripts=['site.js', 'pond.js'])
+    return get_page_html(f'{name[0]} {name[1]}', description, 'home', body, scripts=['site.js', 'race.js'])
 
 
 def get_blog_html():
-    name, description, _, _ = get_personal_data()
+    name, description, _ = get_personal_data()
     pubs = [get_paper_entry(k, e) for (k, e) in parse_bib('publication_list.bib').items()]
     projects = [get_paper_entry(k, e, with_bibtex=False) for (k, e) in parse_bib('project_list.bib').items()]
     talks = [get_talk_entry(k, e) for (k, e) in parse_bib('talk_list.bib').items()]
