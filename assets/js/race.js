@@ -19,7 +19,7 @@
 
   const RAMP = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$";
   const ATLAS_COLS = 10;
-  const STILL_AT = 3.75;       // s into the first clip; the frame held when motion is reduced
+  const STILL_AT = 1.0;        // s into the first clip; the frame held when motion is reduced
   const SEAM = 0.45;           // s; how long the end of a clip dissolves into the next start
   const TRAIL = 12;            // trail points the shader reads
   const TRAIL_LIFE = 900;      // ms
@@ -381,7 +381,7 @@
     });
   }
 
-  // Reduced motion: hold one frame (in the first clip, bikes leaning into the corner).
+  // Reduced motion: hold one frame (in the first clip, the pack leaning into a corner).
   function still() {
     video.pause();
     if (video.readyState >= 1) video.currentTime = Math.min(STILL_AT, (video.duration || STILL_AT) - 0.1);
