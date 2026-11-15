@@ -132,7 +132,7 @@ a:hover, a:focus-visible { text-decoration-color: currentColor; }
   padding: 7rem var(--gutter) clamp(3rem, 12vh, 8rem);
 }
 
-.intro { width: fit-content; max-width: 46rem; }
+.intro { width: fit-content; max-width: 32rem; }
 
 .intro h1 { margin: 0 0 .75rem; font-size: inherit; font-weight: 500; }
 
